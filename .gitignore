@@ -4,3 +4,7 @@
 
 /dist
 /node_modules
+.vs
+bin
+obj
+packages
