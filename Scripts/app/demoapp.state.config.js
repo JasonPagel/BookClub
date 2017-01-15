@@ -21,7 +21,7 @@
             var profileState = {
                 name: 'profile',
                 url: '/profile',
-                template: '<h3>Profile Page Place Holder</h3>',
+                templateUrl: 'views/profile.html',
                 data: {
                     requireLogin: true
                 }
