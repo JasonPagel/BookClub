@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<div class="navbar navbar-default navbar-fixed-left">
+  <a class="navbar-brand" ui-sref="admin.users" href>Administration</a>
+  <ul class="nav navbar-nav">
+   <li ui-sref-active="active"><a ui-sref="admin.users">Users</a></li>
+   <li role="separator" class="divider"></li>
+   <li ui-sref-active="active"><a ui-sref="admin.authors" href>Authors</a></li>
+   <li role="separator" class="divider"></li>
+   <li ui-sref-active="active"><a ui-sref="admin.books">Books</a></li>
+  </ul>
+</div>
+<div class="admin-page">
+    <ui-view></ui-view>
+</div>

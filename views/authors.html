@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<form class="main-page" ng-submit="ctrl.searchAuthors()">
+	<div class="container page-search">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="input-group input-group-lg">
+					<input class="form-control" type="text" ng-model="ctrl.search" placeholder="Search for..." track-value-changed="Search changed"/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="submit" track-click="Search authors">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+						<button class="btn btn-default" type="button" ng-click="ctrl.clearSearch()" track-click="Clear books search">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<div class="panel" ng-repeat="author in ctrl.authors">
+	<author-view author="author"></author-view>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div >
+
+    <form ng-submit="ctrl.addAuthor()">
+        <h3>Authors dialog</h3><br/>
+
+        <label>Name:
+            <input class="form-control" name="author" type="text" ng-model="ctrl.author.name" track-value-changed="Author name added"/>
+        </label>
+        <br/>
+        <label>About:
+            <textarea rows="7" class="form-control" name="description" ng-model="ctrl.author.description" track-value-changed="Author description added"/>
+        </label>
+        <br/>
+        <label>Image:
+            <input class="form-control" ng-model="ctrl.author.image" type="text" track-value-changed="Author image added"/>
+        </label>
+        <br/>
+        <img ng-src="{{ctrl.author.image}}" ng-if="ctrl.author.image" alt="{{ctrl.author.name}}" class="author-image"/>
+        <br/>
+        <button class="btn btn-primary" type="submit" track-click="Author added">Submit</button>
+        <button class="btn btn-secondary" type="button" ng-click="ctrl.cancel()" track-click="Add author cancelled">Cancel</button>
+    </form>
+
+</div>

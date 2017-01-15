@@ -1,0 +1,97 @@
+
+
+  .page-search{
+      margin-bottom: 30px;
+  }
+
+
+.main-page{
+    margin-top: 80px;
+}
+.admin-page{
+    margin-top: 80px;
+    margin-left: 180px;
+}
+
+.logo{
+    width: 35px;
+    height: 20px;
+}
+
+.navbar-grid{
+    border: 0;
+    margin: 0;
+}
+
+.book-image{
+    width: 450px;
+    height: 475px;
+}
+
+.author-image{
+    width: 275px;
+    height: 400px;
+    margin-left: 90px;
+}
+
+.navbar-search {
+    margin: 0;
+    padding-top: 14px;
+}
+
+
+.navbar-fixed-left {
+  width: 175px;
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+  margin-left: -20px;
+  margin-top: 50px;
+}
+
+.navbar-fixed-left .navbar-nav > li{
+  float: none;  /* Cancel default li float: left */
+  width: 174px;
+}
+
+.navbar-fixed-left + .container {
+  padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  margin-top: -50px;
+  margin-left: 140px;
+}
+
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 0px 100px 60px 100px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+form[role=login] img {
+    display: block;
+    margin: 0 auto;
+    height: 250px;
+    width: 250px;
+}
+form[role=login] input,
+form[role=login] button {
+    font-size: 18px;
+    margin: 16px 0;
+}
+form[role=login] > div {
+    text-align: center;
+}
+.form-links {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 50px;
+}
+.form-links a {
+    color: #fff;
+}
