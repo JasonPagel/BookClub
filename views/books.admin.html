@@ -1,2 +1,51 @@
 <!DOCTYPE html>
-<h2>Books Admin Page</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-lg-8">
+            <nav class="navbar navbar-default navbar-grid">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#authors-grid-toolbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="authors-grid-toolbar">
+                        <form class="navbar-form navbar-left">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" ng-click="ctrl.addBook()" track-click="Add Book">Add</button>
+                                <button type="button" class="btn btn-default" ng-click="ctrl.updateBook()" track-click="Update Book">Update</button>
+                                <button type="button" class="btn btn-default" ng-click="ctrl.deleteBook()" track-click="Delete Book">Delete</button>
+                            </div>
+                        </form>
+                        <form class="navbar-form navbar-search navbar-right" check-feature-firm="search" ng-submit="ctrl.searchBook()">
+
+                            <div class="input-group input-group-sm">
+                                <input name="txtSearch" class="form-control" type="text" ng-model="ctrl.search" placeholder="Search for..." track-value-changed="Search changed"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit" track-click="Search Book">
+                                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="btn btn-default" type="button" ng-click="ctrl.clearSearch()" track-click="Clear book search">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div ui-grid="ctrl.gridOptions" ui-grid-selection></div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="panel col-lg-12">
+            <book-view ng-if="ctrl.selectedRow.entity" book="ctrl.selectedRow.entity"></book-view>
+        </div>
+    </div>
+</div>

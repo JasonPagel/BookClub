@@ -6,7 +6,7 @@
 
     function authorsAdminController(Analytics, notificationService, axcesshttp, messageBoxService, darkfeatures, $rootScope, $scope, $interval, newauthorService) {
 
-        Analytics.trackPage('/DemoApp/AuthorsAdmin', 'DemoApp');
+        Analytics.trackPage('/DemoApp/Admin/Authors', 'Book Club');
 
         var vm = this;
 

@@ -76,6 +76,8 @@
                 url: '/books',
                 parent: 'admin',
                 templateUrl: 'views/books.admin.html',
+                controller: 'BooksAdminController',
+                controllerAs: 'ctrl',
                 data: {
                     requireLogin: true
                 }
