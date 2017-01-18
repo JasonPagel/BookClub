@@ -113,7 +113,7 @@
             } else {
                 vm.search = undefined;
             }
-        
+
           var config = { url: url, method: 'GET'};
 
             axcesshttp.get(url, config).then(function (response) {
