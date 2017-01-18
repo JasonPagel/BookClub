@@ -10,10 +10,10 @@
             restrict: 'A',
             link: function checkFeature(scope, element, attrs) {
                 element.hide(); //hide element by default
-                
+
                 darkfeatures.getUserFlag(attrs.checkFeatureFirm).then(function (value) {
-                    if (value) { 
-                        element.show() 
+                    if (value) {
+                        element.show(); 
                     }
                 });
             }
