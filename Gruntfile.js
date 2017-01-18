@@ -28,7 +28,7 @@
             'packages/WK.Axcess.ConsumerLayer.MessageBox.1.0.2.2/content/scripts/messagebox/message.all.min.js',
             '<%= config.buildFolder %>/<%= pkg.name %>.min.js'],
          concatCSS: ['node_modules/bootstrap/dist/css/bootstrap.min.css',
-            'node_modules/angular-ui-grid/ui-grid.min.css', 
+            'node_modules/angular-ui-grid/ui-grid.min.css',
             'packages/WK.Axcess.ConsumerLayer.Notifications.1.0.1.3/content/scripts/notifications/angular-toastr.min.css',
             'css/theme.css',
             'css/site.css',]
@@ -175,7 +175,7 @@
             'validate',
             'build',
             'deploy'
-        ])
+        ]);
 
     };
 })();
