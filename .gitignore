@@ -8,5 +8,5 @@
 bin
 obj
 packages
-.user
+*.user
 .usr

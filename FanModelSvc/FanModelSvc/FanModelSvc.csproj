@@ -220,7 +220,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
-    <Compile Include="Controllers\UserFirmController.cs" />
+    <Compile Include="Controllers\UserFeatureController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +229,7 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\FeatureFlag.cs" />
+    <Compile Include="Models\Flag.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserToken.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MyAuthorization.cs" />
     <Compile Include="Services\TokenRepository.cs" />
+    <Compile Include="Services\UserFeatureRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

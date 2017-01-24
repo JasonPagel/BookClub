@@ -12,19 +12,24 @@ namespace FanModelSvc.Controllers
 {
     public class UserFeatureController : ApiController
     {
+        private UserFeatureRepository _repo;
+
+        public UserFeatureController()
+        {
+            _repo = new UserFeatureRepository();
+        }
+
+        [HttpGet]
         public bool Get(string flag)
         {
             return Get(flag, false);
         }
+        [HttpGet]
         public bool Get(string flag, bool defaultvalue)
         {
             try
             {
-                //TODO: Business logic to call launch darkly and build up user/ firm objects based on auth.
-                if (flag == "delete" || flag == "search")
-                    return true;
-                else
-                    return false;
+                return _repo.CheckFlag(flag);
             }
             catch
             {
@@ -32,5 +37,22 @@ namespace FanModelSvc.Controllers
                 return defaultvalue;
             }
         }
+
+
+
+        [HttpPost]
+        public HttpResponseMessage Post(Flag flag)
+        {
+            if (string.IsNullOrEmpty(flag.name))
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            if (!_repo.SetFlag(flag))
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+
+            return Request.CreateResponse(HttpStatusCode.Accepted);
+        }
+
+
+
     }
 }
