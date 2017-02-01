@@ -4,14 +4,14 @@
         .module('DemoApp')
         .controller('navController', navController);
 
-    navController.$inject = ['$rootScope', 'darkfeatures', '$scope', '$state', 'axcesshttp', 'loginService', 'notificationService', 'signupService'];
+    navController.$inject = ['$rootScope', 'darkfeatures', '$scope', '$state', 'axcesshttp', 'loginService', 'notificationService', 'signupService', 'userService'];
 
-    function navController($rootScope, darkfeatures, $scope, $state, axcesshttp, loginService, notificationService, signupService) {
+    function navController($rootScope, darkfeatures, $scope, $state, axcesshttp, loginService, notificationService, signupService, userService) {
 
         var vm = this;
 
         checkLogin();
-        
+
         $scope.$watch(function() {
             return $rootScope.user;
         } , function() {
@@ -19,6 +19,7 @@
         }, true);
 
         function checkLogin() {
+          $rootScope.user = userService.user;
             if ($rootScope.user === undefined) {
                 vm.bookFlag = undefined;
                 vm.loggedIn = false;
