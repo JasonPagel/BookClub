@@ -9,5 +9,6 @@ namespace FanModelSvc.Models
     {
         public string name { get; set; }
         public bool value { get; set; }
+        public string user { get; set; }
     }
 }

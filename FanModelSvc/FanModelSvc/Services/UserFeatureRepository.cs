@@ -18,20 +18,21 @@ namespace FanModelSvc.Services
             {
                 var flags = new Flag[]
                 {
-                    new Flag() {name="search", value=true },
-                    new Flag() {name="delete", value=true }
+                    new Flag() {name="search", value=true, user="jason" },
+                    new Flag() {name="delete", value=true, user="jason" },
+                    new Flag() {name="search", value=true, user="bill" },
+                    new Flag() {name="delete", value=true, user="bill" }
                 };
 
                 CacheData(flags);
             }
         }
 
-        public bool CheckFlag(string flag)
+        public bool CheckFlag(string flag, string user, bool defaultValue)
         {
-            var currentData = GetCurrentData();
-            var foundFlag = currentData.FirstOrDefault(x => x.name.ToLower() == flag.ToLower());
+            var foundFlag = GetFlag(flag, user);
             if (foundFlag == null)
-                return false;
+                return defaultValue;
 
             return foundFlag.value;
         }
@@ -39,7 +40,7 @@ namespace FanModelSvc.Services
         public bool SetFlag(Flag flag)
         {
             var currentData = GetCurrentData();
-            var foundFlag = currentData.FirstOrDefault(x => x.name.ToLower() == flag.name.ToLower());
+            var foundFlag = GetFlag(flag.name, flag.user, currentData);
 
             if (foundFlag != null)
                 foundFlag.value = flag.value;
@@ -49,6 +50,17 @@ namespace FanModelSvc.Services
             CacheData(currentData);
 
             return true;
+        }
+
+        private Flag GetFlag(string flag, string user)
+        {
+            var currentData = GetCurrentData();
+            return GetFlag(flag, user, currentData);
+        }
+        private Flag GetFlag(string flag, string user, IEnumerable<Flag> flags)
+        {
+            var foundFlag = flags.FirstOrDefault(x => x.name.ToLower() == flag.ToLower() && x.user.ToLower() == user.ToLower());
+            return foundFlag;
         }
 
         private List<Flag> GetCurrentData()

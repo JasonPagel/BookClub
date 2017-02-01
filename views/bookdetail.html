@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-sm-3 col-xs-12">
             <img ng-src="{{ctrl.book.image}}" ng-if="ctrl.book.image" class="image-responsive book-image"/>
         </div>
-        <div class="col-md-5">
+        <div class="col-sm-9 col-xs-12">
             <p><h2>{{ctrl.book.name}}</h2> <h4>by {{ctrl.book.authorname}}</h4></p>
             <br/>
             <h3>Description: </h3>
@@ -17,5 +17,3 @@
         </div>
     </div>
 </div>
-
-

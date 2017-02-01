@@ -18,6 +18,7 @@
             'node_modules/angular-ui-router/release/angular-ui-router.min.js',
             'node_modules/angular-animate/angular-animate.min.js',
             'node_modules/angular-touch/angular-touch.min.js',
+            'node_modules/angular-cookies/angular-cookies.min.js',
             'node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js',
             'node_modules/angular-ui-grid/ui-grid.min.js',
             'packages/WK.Axcess.ConsumerLayer.analytics.1.0.2.0/content/scripts/analytics/*.all.min.js',

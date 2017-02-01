@@ -20,16 +20,16 @@ namespace FanModelSvc.Controllers
         }
 
         [HttpGet]
-        public bool Get(string flag)
+        public bool Get(string flag, string user)
         {
-            return Get(flag, false);
+            return Get(flag, user, false);
         }
         [HttpGet]
-        public bool Get(string flag, bool defaultvalue)
+        public bool Get(string flag, string user, bool defaultvalue)
         {
             try
             {
-                return _repo.CheckFlag(flag);
+                return _repo.CheckFlag(flag, user, defaultvalue);
             }
             catch
             {
