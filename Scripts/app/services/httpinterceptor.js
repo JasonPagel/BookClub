@@ -20,26 +20,22 @@
             return {
                 responseError: function (rejection) {
                     if (rejection.status !== 401) {
-                        return rejection;
+                        return $q.reject(rejection);
                     }
 
                     // holds unauthorized requests while the login form is open, allows them to reissue when closed.
                     function retryWait(config) {
 
-                        var deferred = $q.defer();
-
                         if ($rootScope.loggingIn) {
                             $timeout(function () {
-                                deferred.resolve(retryWait(config));
+                                return retryWait(config);
                             }, 100);
                         } else {
-                            deferred.resolve(config);
+                            return $q.reject(rejection);
                         }
-
-                        return deferred.promise;
                     }
 
-                    
+
                     var deferred = $q.defer();
                     $rootScope.user = undefined;
 
@@ -61,11 +57,14 @@
                         // this isn't the first unauthorized on this call, wait for login and try again.
                         retryWait(rejection.config).then(function (config) {
                             deferred.resolve($http(rejection.config));
+                        }, function (response) {
+                          console.log('rejecting initial rety');
+                          deferred.reject(response);
                         });
                     }
 
                     return deferred.promise;
-                    
+
                 }
             };
         }

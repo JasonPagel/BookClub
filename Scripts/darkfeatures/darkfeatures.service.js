@@ -24,7 +24,7 @@
             axcesshttp.get('api/firmfeature?flag=' + flag + '&defaultvalue=' + defValue).then(function(response) {
                 deferred.resolve(response.data);
             }, function (response) {
-                deferred.resolve(defValue);
+                deferred.reject(defValue);
             });
 
             return deferred.promise;
@@ -38,7 +38,7 @@
             axcesshttp.get('api/userfeature?flag=' + flag + '&defaultvalue=' + defValue).then(function(response) {
                 deferred.resolve(response.data);
             }, function (response) {
-                deferred.resolve(defValue);
+                deferred.reject(defValue);
             });
 
             return deferred.promise;

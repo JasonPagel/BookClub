@@ -19,7 +19,7 @@
         $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Sat, 03 Jan 2015 19:43:31 GMT';
 
         //intercept 401's and redirect to loginService
-       $httpProvider.interceptors.push('myHttpInterceptor');
+       //$httpProvider.interceptors.push('myHttpInterceptor');
 
     }
 

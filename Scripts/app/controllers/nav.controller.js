@@ -19,8 +19,6 @@
         }, true);
 
         function checkLogin() {
-          console.log('checklogin');
-          console.log(userService);
 
             if (userService.user === undefined || userService.user.loggedIn !== true ) {
                 vm.bookFlag = undefined;
@@ -32,7 +30,9 @@
             vm.loggedIn = userService.user.loggedIn;
             vm.username = userService.user.name;
 
+            console.log('before then');
             darkfeatures.getFirmFlag("book", false).then(function (flag) {
+              console.log('after then');
                 vm.bookFlag = flag;
             });
         }

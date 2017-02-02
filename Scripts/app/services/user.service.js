@@ -17,12 +17,9 @@
 
         SaveState: function () {
             localStorage.userService = angular.toJson(service.user);
-            console.log('savestate');
         },
 
         RestoreState: function () {
-            console.log('restoring my state');
-            console.log(localStorage);
             if (localStorage.userService !== undefined)
               service.user = angular.fromJson(localStorage.userService);
         }

@@ -4,9 +4,9 @@
         .module('DemoApp')
         .controller('AuthorsController', authorsController);
 
-    authorsController.$inject = ['Analytics', 'axcesshttp'];
+    authorsController.$inject = ['Analytics', 'axcesshttp', 'notificationService'];
 
-    function authorsController(Analytics, axcesshttp) {
+    function authorsController(Analytics, axcesshttp, notificationService) {
 
         Analytics.trackPage('/DemoApp/Authors', 'DemoApp');
 
@@ -33,16 +33,18 @@
             } else {
                 vm.search = undefined;
             }
-        
+
             var config = { url: url, method: 'GET'};
 
             axcesshttp.get(url, config).then(function (response) {
+              console.log('author response');
+              console.log(response);
                 vm.authors = response.data;
             }, function (response) {
                 notificationService.error('Failed to load authors.');
             });
         }
-        
+
     }
 
 })(angular);
