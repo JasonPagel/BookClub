@@ -29,7 +29,6 @@
                 return;
             }
 
-            $rootScope.user = userService.user;
             vm.loggedIn = userService.user.loggedIn;
             vm.username = userService.user.name;
 

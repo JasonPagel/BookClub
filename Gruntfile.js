@@ -163,6 +163,7 @@
         ]);
 
         grunt.registerTask('builddeploy', [
+          'validate',
           'build',
           'deploy'
         ]);
