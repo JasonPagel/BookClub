@@ -10,15 +10,21 @@
       var service = {
 
         user: {
-            name: ''
+            name: '',
+            loggedIn: false,
+            id: ''
         },
 
         SaveState: function () {
-            sessionStorage.userService = angular.toJson(service.user);
+            localStorage.userService = angular.toJson(service.user);
+            console.log('savestate');
         },
 
         RestoreState: function () {
-            service.user = angular.fromJson(sessionStorage.userService);
+            console.log('restoring my state');
+            console.log(localStorage);
+            if (localStorage.userService !== undefined)
+              service.user = angular.fromJson(localStorage.userService);
         }
       };
 

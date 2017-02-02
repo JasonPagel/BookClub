@@ -27,9 +27,11 @@
         .module('DemoApp')
         .run(appSetup);
 
-        appSetup.$inject = ['Analytics', '$rootScope', '$state', 'loginService'];
+        appSetup.$inject = ['Analytics', '$rootScope', '$state', 'loginService', 'userService'];
 
-        function appSetup(Analytics, $rootScope, $state, loginService) {
+        function appSetup(Analytics, $rootScope, $state, loginService, userService) {
+
+            $rootScope.$broadcast('restorestate');
 
             var sessionId = Analytics.GetSessionId();
             Analytics.setUser('DemoApp User');
@@ -39,9 +41,9 @@
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
                 var requireLogin = toState.data.requireLogin;
 
-                if (requireLogin && typeof $rootScope.user === 'undefined') {
+                if (requireLogin && (userService.user === undefined || userService.user.loggedIn === false)) {
                     event.preventDefault();
-                    
+
                     loginService().then(function () {
                         return $state.go(toState.name, toParams);
                     })
@@ -49,6 +51,18 @@
                         return $state.go('welcome');
                     });
                 }
+
+                //if (sessionStorage.restoreState == "true") {
+                  $rootScope.$broadcast('restorestate'); // let everything know to restore state
+                  //sessionStorage.restorestate = false;
+                //}
+
             });
+
+            //window.onbeforeunload = function (event) {
+            //  alert('unloading');
+            //  console.log('before unload');
+            //    $rootScope.$broadcast('savestate');
+            //};
         }
 })();

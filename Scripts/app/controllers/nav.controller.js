@@ -19,16 +19,19 @@
         }, true);
 
         function checkLogin() {
-          $rootScope.user = userService.user;
-            if ($rootScope.user === undefined) {
+          console.log('checklogin');
+          console.log(userService);
+
+            if (userService.user === undefined || userService.user.loggedIn !== true ) {
                 vm.bookFlag = undefined;
-                vm.loggedIn = false;
                 vm.username = undefined;
+                vm.loggedIn = false;
                 return;
             }
 
-            vm.loggedIn = true;
-            vm.username = $rootScope.user.name;
+            $rootScope.user = userService.user;
+            vm.loggedIn = userService.user.loggedIn;
+            vm.username = userService.user.name;
 
             darkfeatures.getFirmFlag("book", false).then(function (flag) {
                 vm.bookFlag = flag;
@@ -58,9 +61,13 @@
             var user = $rootScope.user;
 
             axcesshttp.delete('api/login/' + user.id).then(function (response) {
+                userService.user.loggedIn = false;
+                $rootScope.$broadcast('savestate');
                 $rootScope.user = undefined;
                 $state.go('welcome');
             }, function (response) {
+                userService.user.loggedIn = false;
+                $rootScope.$broadcast('savestate');
                 $rootScope.user = undefined;
                 notificationService.error('Logout failed');
                 $state.go('welcome');

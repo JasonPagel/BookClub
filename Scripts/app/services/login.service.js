@@ -3,14 +3,18 @@
     angular
         .module('DemoApp')
         .service('loginService', loginService);
-        
-        loginService.$inject = ['$rootScope', '$modal', 'notificationService'];
 
-        function loginService ($rootScope, $modal, notificationService) {
+        loginService.$inject = ['$rootScope', '$modal', 'notificationService', 'userService'];
+
+        function loginService ($rootScope, $modal, notificationService, userService) {
 
             function assignCurrentUser (user) {
-                $rootScope.user = user;
-                return user;
+                userService.user.name = user.name;
+                userService.user.loggedIn = true;
+                userService.user.id = user.id;
+                $rootScope.user = userService.user;
+                $rootScope.$broadcast('savestate');
+                return userService.user;
             }
 
             return function() {
