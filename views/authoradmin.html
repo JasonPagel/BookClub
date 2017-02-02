@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-lg-8">
+            <div class="col-lg-12">
                 <nav class="navbar navbar-default navbar-grid">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,18 +43,18 @@
                 <div ui-grid="ctrl.gridOptions" ui-grid-selection></div>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="row">
-            <div class="panel col-md-12">
+            <div class="col-md-12">
                 <author-view ng-if="ctrl.selectedRow.entity" author="ctrl.selectedRow.entity"></author-view>
             </div>
         </div>
     </div>
-    
 
 
-    <!-- 
-    <label>Enter percent: 
+
+    <!--
+    <label>Enter percent:
         <input type="number" ng-model="ctrl.percentage" track-value-changed="Percentage changed"/>
         <label>Percentage: {{ctrl.percentage | percent:4}}</label>
     </label>
