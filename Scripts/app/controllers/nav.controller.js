@@ -57,12 +57,10 @@
         };
 
         vm.logOut = function () {
-            var user = $rootScope.user;
-
-            axcesshttp.delete('api/login/' + user.id).then(function (response) {
+            axcesshttp.delete('api/login/' + userService.user.id).then(function (response) {
                 userService.user.loggedIn = false;
-                $rootScope.$broadcast('savestate');
                 $rootScope.user = undefined;
+                $rootScope.$broadcast('savestate');
                 $state.go('welcome');
             }, function (response) {
                 userService.user.loggedIn = false;

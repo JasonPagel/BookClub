@@ -23,7 +23,7 @@
             'packages/WK.Axcess.ConsumerLayer.analytics.1.0.2.0/content/scripts/analytics/*.all.min.js',
             'packages/WK.Axcess.ConsumerLayer.tollbridge.1.0.1.2/content/scripts/tollbridge/*.all.min.js',
             'packages/WK.Axcess.ConsumerLayer.notifications.1.0.1.3/content/scripts/notifications/notifications.all.min.js',
-            'packages/WK.Axcess.ConsumerLayer.AxcessHttp.1.0.3.3-alpha/content/scripts/axcesshttp/axcesshttp.all.min.js',
+            'packages/WK.Axcess.ConsumerLayer.AxcessHttp.1.0.3.4-alpha/content/scripts/axcesshttp/axcesshttp.all.min.js',
             'packages/WK.Axcess.ConsumerLayer.PercentFilter.1.0.1.1/content/scripts/percentfilter/percent.filter.all.min.js',
             'packages/WK.Axcess.ConsumerLayer.MessageBox.1.0.2.2/content/scripts/messagebox/message.all.min.js',
             '<%= config.buildFolder %>/<%= pkg.name %>.min.js'],
