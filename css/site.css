@@ -1,6 +1,12 @@
 
 
+.panel-container {
+    box-shadow: 0 0 30px grey;
+    padding: 15px 15px 15px 15px;
+}
+
   .page-search{
+      box-shadow: 0 0 30px black;
       margin-bottom: 30px;
   }
 
@@ -27,6 +33,7 @@
 .author-image{
     width: 100%;
     height: 100%;
+    box-shadow: 0 0 10px black;
 }
 
 .navbar-search {
