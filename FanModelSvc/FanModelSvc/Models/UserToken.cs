@@ -11,13 +11,13 @@ namespace FanModelSvc.Models
         {
             this.id = Guid.NewGuid();
             this.name = name;
-            this.expiration = DateTime.Now.AddSeconds(30);
+            this.expiration = DateTime.Now.AddMinutes(30);
         }
         public UserToken(UserLogin user)
         {
             this.id = Guid.NewGuid();
             this.name = user.name;
-            this.expiration = DateTime.Now.AddSeconds(30);
+            this.expiration = DateTime.Now.AddMinutes(30);
         }
         public Guid id { get; set; }
         public string name { get; set; }
