@@ -70,11 +70,9 @@
   margin-left: 140px;
 }
 
-
 form[role=login] {
 	color: #5d5d5d;
 	background: #f2f2f2;
-	padding: 0px 100px 60px 100px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -89,9 +87,6 @@ form[role=login] input,
 form[role=login] button {
     font-size: 18px;
     margin: 16px 0;
-}
-form[role=login] > div {
-    text-align: center;
 }
 .form-links {
     text-align: center;

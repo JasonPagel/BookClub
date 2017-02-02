@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <div ng-controller="LoginController as ctrl">
-    <form  role="login" ng-submit="ctrl.login()">
+    <form class="form-horizontal" role="login" ng-submit="ctrl.login()">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-sm-6 col-xs-12">
                     <img src="images/login.png" class="img-responsive"/>
                     <input class="form-control input-lg" placeholder="User Name" type="text" ng-model="ctrl.user.name" />
                     <input class="form-control input-lg" placeholder="Password" type="password" ng-model="ctrl.user.password"/>
