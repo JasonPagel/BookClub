@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <div ng-controller="SignUpController as ctrl">
-    <form ng-submit="ctrl.signUp()">
-        <br/>
-        <h3>Enter the information below to sign up for the system.</h3>
-        <br/>
-        <label>User: 
-            <input type="text" ng-model="ctrl.user.name" />
-        </label>
-        <br/>
-        <label>Password:
-            <input type="password" ng-model="ctrl.user.password"/>
-        </label>
-        <br/>
-        <br/>
-        <button type="submit" track-click="SignUp Clicked">SignUp</button>
-        <button type="button" ng-click="ctrl.cancel()" track-click="Cancel Clicked">Cancel</button>
-        <br/>
-        <br/>
+    <form class="form-horizontal" role="login" ng-submit="ctrl.signUp()">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <img src="images/login.png" class="img-responsive"/>
+                    <input class="form-control input-lg" placeholder="User Name" type="text" ng-model="ctrl.user.name" />
+                    <input class="form-control input-lg" placeholder="Password" type="password" ng-model="ctrl.user.password" />
+                    <button class="btn btn-lg btn-block btn-primary" type="submit" track-click="SignUp Clicked">Sign Up</button>
+                    <button class="btn btn-lg btn-block btn-secondary" type="button" track-click="SignUp Cancelled" ng-click="ctrl.cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>

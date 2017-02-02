@@ -47,7 +47,7 @@
                     showallerrors: true,
                     relaxerror: [
                         // These errors can safely be ignored.
-                        'W001', 'W002', 'W003', 'W005', 'W012'
+                        'W001', 'W002', 'W003', 'W005', 'W012', 'E013'
                     ]
                 },
                 files: fileLists.html
