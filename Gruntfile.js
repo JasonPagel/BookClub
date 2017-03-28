@@ -61,6 +61,22 @@
                     }
                 }
             },
+            'string-replace': {
+              dist: {
+                files: {
+                  'dist/deploy/scripts/demoapp.min.all.js' : 'dist/deploy/scripts/demoapp.min.all.js'
+                },
+                options: {
+                  replacements: [{
+                    pattern: '$$PROTOCOL$$',
+                    replacement: 'https'
+                  }, {
+                    pattern: '$$API_SERVICE_BASE_URI$$',
+                    replacement: 'dkft1-apim.azure-api.net'
+                  }]
+                }
+              }
+            },
             jshint: {
                 src: fileLists.js
             },
@@ -129,12 +145,6 @@
                     cwd: gruntConfig.buildFolder,
                     src: ['<%= pkg.name %>.min.all.js'],
                     dest: '<%= config.deploymentFolder %>/scripts'
-                },
-                darkFeatures: {
-                    expand: true,
-                    cwd: 'scripts/darkfeatures',
-                    src: ['*.js'],
-                    dest: '<%= config.deploymentFolder %>/scripts'
                 }
             },
         });
@@ -159,7 +169,8 @@
         ]);
 
         grunt.registerTask('deploy', [
-            'copy'
+            'copy',
+            'string-replace'
         ]);
 
         grunt.registerTask('builddeploy', [
